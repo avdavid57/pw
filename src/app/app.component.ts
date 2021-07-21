@@ -10,10 +10,11 @@ export class AppComponent {
   includeLetters = false;
   includeNumbers = false;
   includeSymbols = false;
-  password =  "";
+  password =  '';
 
-  onChangeLength(value: string) {
-    const parsedValue = parseInt(value);
+  onChangeLength(event: Event) {
+    const target = event.target as HTMLInputElement;
+    const parsedValue = parseInt(target.value);
 
     if (!isNaN(parsedValue)) {
       this.length = parsedValue;
@@ -28,7 +29,7 @@ export class AppComponent {
     this.includeNumbers = !this.includeNumbers;
   }
 
-  onChangeIncludeSymbols() {
+  onChangeUseSymbols() {
     this.includeSymbols = !this.includeSymbols;
   }
 
